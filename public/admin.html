@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin de Eventos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Administración</h1>
+    <nav>
+      <a href="/">Eventos</a>
+    </nav>
+  </header>
+
+  <main class="container grid-2">
+    <section class="card">
+      <h2>Crear / Editar Evento</h2>
+      <form id="event-form">
+        <input type="hidden" id="event-id" />
+        <div class="form-row">
+          <label>Título</label>
+          <input id="title" required />
+        </div>
+        <div class="form-row">
+          <label>Descripción</label>
+          <textarea id="description"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Fecha</label>
+          <input id="date" type="date" required />
+        </div>
+        <div class="form-row">
+          <label>Hora</label>
+          <input id="time" type="time" required />
+        </div>
+        <div class="form-row">
+          <label>Ubicación</label>
+          <input id="location" required />
+        </div>
+        <div class="form-row">
+          <label>Capacidad (0 = ilimitada)</label>
+          <input id="capacity" type="number" min="0" value="0" />
+        </div>
+        <div class="form-row">
+          <label>Admin Secret (si aplica)</label>
+          <input id="admin-secret" placeholder="x-admin-secret" />
+        </div>
+        <button type="submit">Guardar</button>
+        <button id="btn-cancel" type="button" class="secondary">Cancelar</button>
+        <p id="form-msg" class="msg"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Eventos</h2>
+      <div id="events-list"></div>
+    </section>
+  </main>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/admin.js"></script>
+</body>
+</html>
